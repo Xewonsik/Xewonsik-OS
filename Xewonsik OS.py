@@ -1,4 +1,3 @@
-
 # Основа
 
 import tkinter as tk
@@ -6,22 +5,24 @@ from tkinter import messagebox
 import platform
 import sys
 
-class PhoneOS:
+class xewonsikOS:
     def __init__(self, root):
         self.root = root
         self.root.title("Xewonsik OS")
-        self.root.geometry("300x500")
+        self.root.geometry("280x300")
         self.os_version = "Xewonsik OS"
         self.apps = {
-            "WiFi": self.open_wifi, 
-            "Игры": self.open_game, 
-            "Калькулятор": self.open_calculator,
-            "Календарь": self.open_calendar,
-            "Контакты": self.open_contact, 
-            "Файловый менеджер": self.open_files, 
-            "Настройки": self.open_nas, 
-            "Информация": self.open_settings,
-            "О системе": self.show_system_info
+            "💡 WiFi": self.open_wifi, 
+            "🕹 Игры": self.open_game, 
+            "📟 Калькулятор": self.open_calculator,
+            "📆 Календарь": self.open_calendar,
+            "☎ Контакты": self.open_contact, 
+            "📼 Проводник": self. open_provo, 
+            "💾 Файловый менеджер": self.open_files, 
+            "🛠 Настройки": self.open_nas, 
+            "📱 Информация": self.open_settings,
+            "sys": self.open_sys, 
+            "📝 О системе": self.show_system_info
         }
         
         # Стиль
@@ -61,7 +62,17 @@ class PhoneOS:
         nas_window.title("Настройки")
         nas_window.geometry("250x200") 
         
-        tk.Label(nas_window, text=f"Настройки пока что не доступны!").pack() 
+        tk.Label(nas_window, text=f"Загрузка...").pack()
+        
+        
+    def open_sys(self):
+        sys_window = tk.Toplevel(self.root)
+        sys_window.title("sys")
+        sys_window.geometry("250x200")
+        
+        tk.Label(sys_window, text=f"ERROR!").pack() 
+        tk.Label(sys_window, text=f"ERROR!").pack() 
+        tk.Label(sys_window, text=f"ERROR!").pack()
         
     def open_game(self):
         game_window = tk.Toplevel(self.root) 
@@ -69,7 +80,7 @@ class PhoneOS:
         game_window.geometry("250x200") 
         
         tk.Label(game_window, text="Игры", font=12) 
-        tk.Label(game_window, text=f"Игры пока что не доступны").pack()
+        tk.Label(game_window, text=f"Игры недоступны").pack()
     
     def open_calculator(self):
         calc_window = tk.Toplevel(self.root)
@@ -142,6 +153,16 @@ class PhoneOS:
         tk.Label(setting_window, text=f"Програмиа: Python").pack()
         
     
+    def open_provo(self):
+        provo_window = tk.Toplevel(self.root) 
+        provo_window.title("Проводник")
+        provo_window.geometry("250x200")
+        
+        tk.Label(provo_window, text=f"Память: 175 МБ").pack() 
+        tk.Label(provo_window, text=f"Осталось: 57 МБ").pack()
+        tk.Label(provi_window, text=f"ОЗУ: 317 КВ").pack()
+        
+    
     def open_wifi(self):
         wifi_window = tk.Toplevel(self.root) 
         wifi_window.title("WiFi")
@@ -160,6 +181,7 @@ class PhoneOS:
         tk.Label(contact_window, text=f"Друг").pack() 
         tk.Label(contact_window, text=f"Разработчик").pack()
         
+        
     def open_files(self):
         files_window = tk.Toplevel(self.root) 
         files_window.title("Файловый менеджер")
@@ -172,14 +194,13 @@ class PhoneOS:
         tk.Label(files_window, text=f"2. file_user").pack() 
         tk.Label(files_window, text=f"3. file_OS").pack() 
         tk.Label(files_window, text=f"4. file_setting").pack()
-        tk.Label(files_window, text=f"5. file_time").pack()
         
     
     def show_system_info(self):
         real_os = platform.system() + " " + platform.release()
         python_version = "Python " + platform.python_version()
         
-        info = f"""Симулятор PhoneOS
+        info = f"""Симулятор xewonsikOS
 Версия: {self.os_version}
 
 Реальная система:
@@ -194,5 +215,5 @@ Python: {python_version}"""
 
 if __name__ == "__main__":
     root = tk.Tk()
-    os = PhoneOS(root)
+    os = xewonsikOS(root)
     root.mainloop()
